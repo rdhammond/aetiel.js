@@ -1,0 +1,24 @@
+{
+  "name": "aetiel.js",
+  "version": "0.9.9",
+  "description": "Another attempt at a configurable, pluggable ETL service, this time in Node.js.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rdhammond/aetiel.js.git"
+  },
+  "author": "R. Daniel Hammond",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdhammond/aetiel.js/issues"
+  },
+  "homepage": "https://github.com/rdhammond/aetiel.js",
+  "dependencies": {
+    "csv": "^1.1.0",
+    "q": "^1.4.1",
+    "restify": "^4.1.1"
+  }
+}
