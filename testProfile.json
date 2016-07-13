@@ -1,0 +1,8 @@
+{
+  "extractor": {
+    "name": "ArrayExtractor",
+    "options": { "data": [1,2,3,4] }
+  },
+  "transformer": { "name": "LoopbackTransformer" },
+  "loader": { "name": "ConsoleLoader" }
+}
