@@ -2,7 +2,6 @@
 
 module.exports = {
   path: require('path'),
-  q: require('q'),
 
   config: require('./config'),
   Loader: require('./lib/loaders/Loader'),
