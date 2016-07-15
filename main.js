@@ -3,7 +3,7 @@
 // ** TODO: Actual scheduling, etc.
 const ioc = require('./ioc');
 
-let profile = new ioc.Profile(ioc, 'testProfile');
+let profile = new ioc.Profile(ioc, 'csvLoopbackProfile');
 
 profile.run()
   .then(() => { console.log('Finished.'); })

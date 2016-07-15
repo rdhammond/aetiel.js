@@ -2,6 +2,8 @@
 
 module.exports = {
   path: require('path'),
+  csv: require('csv'),
+  fs: require('fs'),
 
   config: require('./config'),
   Loader: require('./lib/loaders/Loader'),
@@ -9,7 +11,8 @@ module.exports = {
   Profile: require('./lib/Profile'),
 
   Extractors: {
-    ArrayExtractor: require('./lib/extractors/ArrayExtractor')
+    ArrayExtractor: require('./lib/extractors/ArrayExtractor'),
+    CSVExtractor: require('./lib/extractors/CSVExtractor')
   },
 
   Transformers: {

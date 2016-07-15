@@ -2,6 +2,7 @@
 
 module.exports = {
   profiles: {
-    testProfile: require('./testProfile')
+    loopbackProfile: require('./loopbackProfile'),
+    csvLoopbackProfile: require('./csvLoopbackProfile')
   }
 };

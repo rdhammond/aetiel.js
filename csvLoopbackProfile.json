@@ -1,0 +1,11 @@
+{
+  "extractor": {
+    "name": "CSVExtractor",
+    "options": {
+      "filename": "test.csv",
+      "columns": true
+    }
+  },
+  "transformer": { "name": "LoopbackTransformer" },
+  "loader": { "name": "ConsoleLoader" }
+}
