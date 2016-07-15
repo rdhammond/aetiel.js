@@ -1,25 +1,23 @@
 'use strict';
 
-let ioc = {
-  streamTransform: require('stream-transform'),
+module.exports = {
+  path: require('path'),
+  q: require('q'),
 
+  config: require('./config'),
   Loader: require('./lib/loaders/Loader'),
-  Profiles: require('./lib/Profile'),
+  Transformer: require('./lib/transformers/Transformer'),
+  Profile: require('./lib/Profile'),
 
-  extractors: [
+  Extractors: {
     ArrayExtractor: require('./lib/extractors/ArrayExtractor')
-  ],
+  },
 
-  transformers: [
+  Transformers: {
     LoopbackTransformer: require('./lib/transformers/LoopbackTransformer')
-  ],
+  },
 
-  loaders: [
+  Loaders: {
     ConsoleLoader: require('./lib/loaders/ConsoleLoader')
-  ]
+  }
 };
-
-// Singletons
-ioc.profiles = new Profiles(ioc);
-
-module.exports = ioc;
