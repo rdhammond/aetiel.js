@@ -1,8 +1,9 @@
 {
-  "extractor": {
-    "name": "ArrayExtractor",
+  "trigger": {
+    "name": "ArrayTrigger",
     "options": { "data": [1,2,3,4] }
   },
+  "extractor": { "name": "PassthroughExtractor" },
   "transformer": { "name": "LoopbackTransformer" },
   "loader": { "name": "ConsoleLoader" }
 }
