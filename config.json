@@ -1,0 +1,7 @@
+{
+  "profilesPath": "profiles",
+  "restify": {
+    "enabled": "true",
+    "port": "8081"
+  }
+}

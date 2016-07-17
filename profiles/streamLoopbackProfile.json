@@ -1,0 +1,9 @@
+{
+  "trigger": { "name": "StreamTrigger" },
+  "extractor": {
+    "name": "CSVExtractor",
+    "options": { "columns": true }
+  },
+  "transformer": { "name": "LoopbackTransformer" },
+  "loader": { "name": "ConsoleLoader" }
+}

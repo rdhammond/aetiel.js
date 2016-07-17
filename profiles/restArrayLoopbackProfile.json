@@ -1,0 +1,6 @@
+{
+  "trigger": { "name": "RestTrigger" },
+  "extractor": { "name": "PassthroughExtractor" },
+  "transformer": { "name": "LoopbackTransformer" },
+  "loader": { "name": "ConsoleLoader" }
+}
