@@ -1,11 +1,14 @@
 {
   "trigger": {
-    "name": "FileTrigger",
-    "options": { "filename": "test/test.csv" }
+    "name": "FolderWatchTrigger",
+    "options": {
+      "path": "test/watch",
+      "filter": "\\.csv$"
+    }
   },
   "extractor": {
     "name": "CSVExtractor",
-    "options": { "columns": true }
+    "options": { "columsn": true }
   },
   "transformer": { "name": "LoopbackTransformer" },
   "loader": { "name": "ConsoleLoader" }
