@@ -1,5 +1,12 @@
 {
-  "profilesPath": "profiles",
+  "profiles": {
+    "path": "profiles/sample",
+    "start": [
+      "arrayLoopbackProfile",
+      "restArrayLoopbackProfile",
+      "folderWatchLoopbackProfile"
+    ]
+  },
   "restify": {
     "enabled": "true",
     "port": "8081"

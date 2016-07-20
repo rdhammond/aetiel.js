@@ -1,39 +1,43 @@
 'use strict';
 
 const ioc = require('./ioc');
-ioc.profiles = loadProfiles();
+Array.prototype.any = any;
+Array.prototype.contains = contains;
 
 var restifyServer;
 
-// ** TODO: Scheduling, etc.
-if (ioc.config.restify) {
+ioc.profiles = ioc.Profile.loadProfiles(ioc);
+let profiles = Array.from(ioc.profiles.values());
+
+if (profiles.any(x => x.config.trigger.name === 'RestTrigger')) {
   restifyServer = new ioc.RestifyServer(ioc);
   restifyServer.start();
 }
 
-/*let request = {
-  body: [1,2,3,4]
+let watchProfiles = profiles.filter(x => x.config.trigger.name === 'FolderWatchTrigger');
+
+for (var profile of watchProfiles) {
+  // ** TODO: Better logging
+  profile.run().on('error', (e) => { console.error(e); });
+}
+
+let oneShotProfiles = profiles.filter(x =>
+  !['RestTrigger', 'FolderWatchTrigger'].contains(x.config.trigger.name)
+);
+
+for (var profile of oneShotProfiles) {
+  // ** TODO: Better logging
+  profile.run()
+    .on('error',(e) => { console.error(e) })
+    .on('done', () => { console.log(`${profile.name} finished.`); });
+}
+
+console.log('Running one-shot profiles.');
+
+function any(conditionCallback) {
+  return this.reduce((prev, current) => prev || conditionCallback(current));
 };
 
-ioc.profiles.get('restifyArrayProfile').run(request)
-  .on('end', () => { console.log('Finished.'); })
-  .on('error', () => { console.log(e); });*/
-
-function loadProfiles() {
-  let profiles = new Map(),
-    path = ioc.config.profilesPath || 'profiles',
-    filenames = ioc.fs.readdirSync(path).filter(x => /\.json$/i.test(x));
-
-  for (var filename of filenames) {
-    let name = filename.split('.')[0],
-      fileLoc = ioc.path.join(path, filename).replace(/\\/g, '/');
-
-    if (fileLoc.charAt(0) != '/')
-      fileLoc = './' + fileLoc;
-
-    let config = require(fileLoc);
-    profiles.set(name, new ioc.Profile(ioc, config));
-  }
-
-  return profiles;
+function contains(val) {
+  return this.indexOf(val) >= 0;
 }
