@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rdhammond/aetiel.js",
   "dependencies": {
     "csv": "^1.1.0",
+    "mongodb": "^2.2.4",
     "restify": "^4.1.1"
   },
   "devDependencies": {
