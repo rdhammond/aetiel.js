@@ -7,8 +7,9 @@ module.exports = {
   stream: require('stream'),
   timers: require('timers'),
   restify: require('restify'),
-  config: require('./config'),
+  mongodb: require('mongodb'),
 
+  config: require('./config'),
   Loader: require('./lib/loaders/Loader'),
   Transformer: require('./lib/transformers/Transformer'),
   Profile: require('./lib/Profile'),
@@ -34,6 +35,7 @@ module.exports = {
   },
 
   Loaders: {
-    ConsoleLoader: require('./lib/loaders/ConsoleLoader')
+    ConsoleLoader: require('./lib/loaders/ConsoleLoader'),
+    MongoLoader: require('./lib/loaders/MongoLoader')
   }
 };

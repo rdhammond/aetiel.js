@@ -1,0 +1,25 @@
+{
+  "trigger": {
+    "name": "ArrayTrigger",
+    "options": {
+      "data": [
+        { "name": "John Doe", "address": "1234 Test St", "age": 34 },
+        { "name": "Jane Doe", "address": "4586 Test St", "age": 22 },
+        { "name": "Hurf Durf", "address": "148 Durr Ave", "age": 41 }
+      ]
+    }
+  },
+  "extractor": { "name": "PassthroughExtractor" },
+  "transformer": { "name": "LoopbackTransformer" },
+  "loader": {
+    "name": "MongoLoader",
+    "options": {
+      "connectionString": "mongodb://localhost/aetiel",
+      "maxBatchSize": 1000,
+      "maps": [
+        { "collection": "addresses", "keys": "name", "values": "name,address" },
+        { "collection": "ages", "keys": "name", "values": "name,age" }
+      ]
+    }
+  }
+}
