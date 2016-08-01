@@ -17,8 +17,8 @@
       "connectionString": "mongodb://localhost/aetiel",
       "maxBatchSize": 1000,
       "maps": [
-        { "collection": "addresses", "keys": "name", "values": "name,address" },
-        { "collection": "ages", "keys": "name", "values": "name,age" }
+        { "collection": "addresses", "keys": ["name"], "values": ["name", "address"] },
+        { "collection": "ages", "keys": ["name"], "values": ["name", "age"] }
       ]
     }
   }

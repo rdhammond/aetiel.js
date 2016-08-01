@@ -8,8 +8,11 @@ module.exports = {
   timers: require('timers'),
   restify: require('restify'),
   mongodb: require('mongodb'),
+  _: require('underscore'),
 
   config: require('./config'),
+  sequence: require('./lib/sequence'),
+  nfPromise: require('./lib/nfPromise'),
   Loader: require('./lib/loaders/Loader'),
   Transformer: require('./lib/transformers/Transformer'),
   Profile: require('./lib/Profile'),
